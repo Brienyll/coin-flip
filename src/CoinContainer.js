@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class CoinContainer extends Component {
   static defaultProps = {
-    coins = [
+    coins: [
       {side: 'heads', imgSrc:"https://tinyurl.com/react-coin-heads-jpg"},
       {side: 'tails', imgSrc:"https://tinyurl.com/react-coin-tails-jpg"}
     ]
@@ -13,15 +13,24 @@ class CoinContainer extends Component {
       currCoin: null,
       nFlips: 0,
       nHeads: 0,
-      mTails: 0
+      nTails: 0
     };
+    this.handleClick = this.handleClick.bind(this);
+  }
+  flipCoin() {
+
+  }
+
+  handleClick(e){
+    this.flipCoin()
   }
 
   render() {
-    retrun (
+    return (
       <div className="CoinContainer">
-        <h> lrip A Coin</h2>
-        <p>Out of {this.state.nFLips} flips, there have been {this.state.nHeads} Heads, 
+        <h2> Flip A Coin</h2>
+        <button onCLick={this.handleClick}>Flip Coin!</button>
+        <p>Out of {this.state.nFlips} flips, there have been {this.state.nHeads} Heads 
         and {this.state.nTails} Tails.</p>
       </div>
     )
